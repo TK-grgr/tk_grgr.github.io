@@ -1,0 +1,591 @@
+@charset "UTF-8";
+/*-----------------------------------共通----------------------------*/
+:root {
+    --main-color: #007b43;
+    --text-color: #4c4948;
+    --font-main: 'Noto Serif JP', serif;
+    --font-sub: "Hiragino Kaku Gothic ProN", sans-serif;
+    --font-size_SS:.75rem;   /* 12px */
+    --font-size_N:1rem;      /* 16px */
+    --font-size_S:1.125rem;  /* 18px */
+    --font-size_M:1.375rem;  /* 22px */
+    --font-size_L:1.75rem;   /* 28px */
+    --font-size_LL:2rem;     /* 32px */
+}
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+
+}
+body {
+    font-family: var(--font-main), var(--font-sub);
+    padding-top: 0px;
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+/* コピペ用コード */
+.font-size-dummy {
+    /* キャプション補足 */
+    font-size: .75rem;   /* 12px */
+    font-size: .8125rem; /* 13px */
+    font-size: .875rem;  /* 14px */
+    /* 本文 */
+    font-size: 1rem;     /* 16px */
+    /* 小見出し・ボタン、ラベル */
+    font-size: 1.125rem; /* 18px */
+    /* 中見出し */
+    font-size: 1.25rem;  /* 20px */
+    font-size: 1.375rem;  /* 22px */
+    /* 大見出し */
+    font-size: 1.75rem;  /* 28px */
+    font-size: 2rem;     /*32px*/
+}
+/*二重枠用*/
+.home-btn.home-btn--framed{
+    display: block;
+    margin:  32px auto;
+    max-width: 900px;
+    padding: 22px 28px;
+
+    color: var(--main-color);
+
+    border: 3px solid var(--main-color);
+    outline: 3px solid var(--main-color);
+    outline-offset: -12px;
+
+}
+/*---------------------------------- 
+    タイトル 
+------------------------------------*/
+.title {
+    font-family: "Noto Sans JP", sans-serif;
+    margin: 0;
+    text-align: center;
+    line-height: 1.15;
+    font-weight: 800;
+    font-size: var(--font-size_LL);
+    letter-spacing: 0.5px;
+}
+.header-top {
+    background-color: var(--main-color);
+    height: 20px;
+}
+/*------------------------- 
+    固定スクロールヘッダー 
+---------------------------*/
+.scroll-header {
+    position: fixed;
+    top: -80px;
+    left: 0;
+    right: 0;
+    height: 75px;
+    background-color: #FFF;
+    z-index: 2000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.header-inner {
+    max-width: 1120px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+#header-title {
+    white-space: nowrap;
+}
+/*------------------ 
+    ヘッダー内 
+----------------------*/
+.scroll-header .home-btn {
+    margin: 0;
+    max-width: none;
+    display: inline-block;
+
+    padding: 8px 12px;
+    color: var(--main-color);
+
+    border: 1px solid var(--main-color);
+    outline: 1px solid var(--main-color);
+    outline-offset: -6px;
+}
+
+.scroll-header .title {
+  margin: 0;
+  line-height: 1.2;
+  font-size:var(--font-size_SS);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-align: center;
+  display: inline-block;
+}
+
+.scroll-header.is-visible {
+    top: 0;
+}
+/* --------------------
+    ナビゲーション
+---------------------- */
+
+.main-nav,.small-nav {/*ナビゲーションレイアウト*/
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.main-nav{
+    justify-content: center;
+    font-size: 1.25rem;  /* 20px */
+}
+.small-nav {
+    justify-content: flex-end;
+    font-size: var(--font-size_N);
+    /* overflow-y: auto; */
+}
+.slide{/*javascriptで付与する横スライド可能化クラス*/
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.small-nav li{/*勝手に折り返さないようにするクラス*/
+    white-space: nowrap;
+}
+.main-nav a,
+.small-nav a,
+.page-title,
+.home-subtitle {
+    color: var(--main-color);
+}
+
+/*------------------ 
+    レイアウトコンテナ
+------------------- */
+.wrapper,
+.sub-wrapper
+ {/*通常のレイアウト用*/
+    margin: auto;
+    padding: 0 1.5rem;
+}
+.wrapper { max-width: 1120px;}
+.sub-wrapper {/*少し広くしたいとき用*/    max-width: 1500px;}
+
+.blank {/*空白用*/
+    height: 4rem;
+}
+.litle-blank {
+    height: 5px;
+}
+/*---------------- 
+    下線 
+----------------*/
+.underline {/*下線*/
+    border-bottom: 3px #007b43 solid;
+    margin-bottom: 4vh;
+}
+.box-shadow {/*背景が凹んでる風に見せる*/
+    margin-top: 5px;
+    height: 30px;
+    box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+    background-color: #f7f7f7;
+}
+/* ------------------------------------------
+    アンダーラインを表示させるアニメーション 
+    -------------------------------------------*/
+.text-under {
+  position: relative;
+  display: inline-block;      /* 行内配置で幅に沿う */
+  text-decoration: none;
+}
+
+.text-under::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;                   /* 中央合わせ & 全幅 */
+  bottom: -5px;               /* 文字との距離。フォントに合わせて微調整 */
+  margin: 0 auto;             /* 中央寄せ */
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;         /* 端を少し丸めるなら */
+  transform: scaleX(0);       /* 幅0（中央基点） */
+  transform-origin: center;   /* 中央から拡大 */
+  transition: transform 0.25s ease;
+  background-color: var(--main-color);
+}
+.text-under.sub-text-under::after {
+    bottom: -10px;
+}
+.text-under:hover::after,
+.text-under:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* ------------
+    共通
+-------------- */
+.page-title {/*見出し*/
+    font-size:var(--font-size_LL);
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.flex-box{/*横並び用*/
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.flex-reverse{/*flex-box反転用*/
+    flex-direction: row-reverse;
+}
+
+.profile,.skill{
+    justify-content: center;
+}
+.hobby {
+    justify-content: center;
+    gap: 20px;
+}
+
+.home-img {
+    width: 300px;
+    margin: 1.5rem 4rem;
+}
+
+.skill li{
+    text-align: center;
+}
+.skill {
+    margin-top: 1rem;
+}
+.skill img {
+    width: 250px;
+    padding: 20px;
+}
+
+.hobby img{
+    width: 500px;
+}
+
+.skill-text {/*サブタイトル打消し*/
+    font-size:var(--font-size_N);
+    text-align: center;
+}
+.skill-text,
+.readbtn {
+    color: var(--text-color);
+}
+.border-img,.border-img_square {
+    border: var(--main-color) solid 2px;
+    margin: 2rem;
+    border-radius: 10%;
+    width: fit-content;
+}
+.scale {
+    transition-duration: .5s;
+
+}
+.read:hover .border-img{
+  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  transition-duration: .5s;
+}
+.home-subtitle {/*中見出し用*/
+    text-align: center;
+    font-size: var(--font-size_M);
+    margin-bottom: .5rem;
+}
+
+.home-text {
+    font-size: var(--font-size_S);
+    line-height: 1.6em;
+    color: var(--text-color);
+    margin: 2rem;
+
+}
+
+.text-block{/*上下に離す文章*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.readbtn {
+  width: 150px;
+  padding: 3px;
+  border: 1px solid #b3b3b3;
+  border-radius: 15px; /* ← 角を丸くする */
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: block;
+}
+
+.readbtn:hover,
+.read:hover .readbtn,
+.read:hover:focus .readbtn {
+  background-color: var(--main-color, #2e7dff);
+  color: #fff;
+}
+
+#pagetop:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+#pagetop:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, .2);
+  outline-offset: 3px;
+}
+/* 一番上に戻るボタン */
+#pagetop {
+    position: fixed;
+    background-color: #FFF;
+    right: 40px;
+    bottom: 40px;
+    z-index: 5500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height:60px;
+    cursor: pointer;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    transition: .3s;
+    color: var(--main-color);
+}
+#pagetop.visible {
+  opacity: 0.6;
+  pointer-events: auto;
+}
+/* 内側の矢印 */
+#pagetop span {
+  width: 14px;
+  height: 14px;
+  display: block;
+  border-top: 2.5px solid currentColor;
+  border-right: 2.5px solid currentColor;
+  transform: translateY(3px) rotate(315deg);
+  transform-origin:center ;
+}
+.copylight{
+    background-color: var(--main-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 6rem;
+    color: #FFF;
+}
+/* -----------------------
+ボタン・ロゴのサイズバリエーション 
+----------------------------*/
+.font-english {/*英語タイトル*/
+    font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+}
+
+
+.header-img {/*ヘッダー画像*/
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
+
+/* ── SM（最適化：線を細く、間隔を狭く） */
+.home-btn--sm {
+  max-width: 300px;     /* 小サイズの横幅（好みで 260〜360px で調整可） */
+  padding: 10px 16px;   /* 枠内余白（文字と枠の近さを抑える） */
+}
+.home-btn--sm .title {
+  font-size: var(--font-size_M);      /* 小さめタイトル。12〜16pxで微調整可 */
+  line-height: 1.2;
+  font-weight: 800;     /* Noto Sans JP 使用時は 700〜800 が視認性◎ */
+  letter-spacing: 0.3px;
+}
+/* 小サイズだけ線の太さ・間隔を最適化 */
+.home-btn.home-btn--framed.home-btn--sm {
+  border: 0px;    /* 外枠：1px */
+  outline: 0px;   /* 内枠：1px */
+  outline-offset: -8px;         /* ギャップ：8px */
+}
+/* -------------------------------------
+    HOME外共通 
+-----------------------------------------*/
+.sub-title {
+    text-align: left;
+    font-size: var(--font-size_L);
+    color: var(--main-color);
+}
+.sub-sub-title,.sub-title-text,.contact-text{
+    text-align: left;
+    font-size: var(--font-size_S);
+}
+
+
+
+.sub-sub-title {
+    margin: 1rem 0;
+}
+.sub-title-text,.contact-text{
+    margin-bottom: 10px   ;
+    font-size: var(--font-size_M);
+}
+.tag-text {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* --------------------------------------------
+    CONTACT 
+----------------------------------------------*/
+.underline-wrapper{
+    display: block;
+    align-items: flex-start;
+    width: 25rem;
+}
+/* -----------------------------------------
+    ACTIVITY 
+--------------------------------------------*/
+.activity-item {
+    width: 350px;
+    height: auto;
+    margin: 0 50px;
+}
+/* -----------------------------------------
+    PROFILE 
+--------------------------------------------*/
+.profile-spiki {
+    width: 100px;
+    height: auto;
+    align-items: flex-start;
+    margin-right: 2rem;
+}
+.profile-items {
+    width: 450px;
+    align-items: flex-start;
+    margin: 1rem 1.5rem;
+}
+.profile-text {
+    margin-left: 2.5rem;
+    font-size: var(--font-size_S);
+}
+.using_cursor {
+    position: fixed;
+    cursor: url("images/spk.png");
+}
+
+.change {
+  cursor: url("../images/spk2.png") 0 0, auto;
+}
+/* ---------------------------------------------------
+        BOOK 
+-----------------------------------------------------*/
+.book-text {
+    font-size: var(--font-size_S);
+    text-decoration: none;
+    list-style: none;
+}
+.book-litle-text{
+    font-size: var(--font-size_SS);
+    text-align: right;
+}
+
+/* ---------------------------------------------------
+    TRPG
+----------------------------------------------------- */
+.trpg-sub-title {
+    font-size: var(--font-size_M);
+    color: var(--main-color);
+    font-family: var(--font-sub);
+}
+.img_gap {
+    gap: var(--font-size_LL);
+}
+.trpg_img{
+    width: 100px;
+}
+#dice_btn {
+    background: var(--main-color);
+    padding: 0.75rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+}
+/*----------------------------------------------------
+ モバイル最適化
+----------------------------------------------------*/ 
+
+/* スマホ: ～768px */
+@media (max-width: 768px){
+  :root { --gutter: 1rem; }
+
+  body { padding-top: 56px; }
+
+  .header-inner{
+    height: 70px; padding: 0 var(--gutter); gap: 12px;
+  }
+  .scroll-header{ height: 70px; }
+  .page-title{ font-size: clamp(20px, 7vw, 28px); }
+  .home-subtitle{ text-align: left; }
+
+  .main-nav, .small-nav{ gap: 12px; }
+  .home-img {align-items: center;
+             max-width: 250px;}
+  .skill li, .text-block{ min-width: auto; max-width: 100%; flex: 1 1 auto; }
+
+  .hobby img{ width: clamp(200px, 90vw, 420px); }
+
+  .sub-wrapper{ max-width: 94%; }
+  .duble-wrapper{ max-width: 92%; }
+
+  .home-btn.home-btn--framed{
+    margin: 1.2rem auto; max-width: 100%; padding: 14px 16px; outline-offset: -8px;
+  }
+
+  #pagetop{ right: 12px; bottom: 12px; width: 48px; height: 48px; }
+  .copylight{ margin-top: 4rem; }
+
+  .desk-only {
+    display: none;
+}
+.small-nav {
+    justify-content: flex-end;
+    font-size: var(--font-size_SS);
+}
+
+.scroll-header{
+    background-color: none;
+}
+.border-img.scale {
+    transition-duration: .5s;
+    width: 280px;
+}
+.hobby {
+    gap: 0px;
+}
+.border-img {
+    margin: 1rem;
+}
+.home-text {
+    margin: 1rem;
+}
+.header-img{
+    height: 40vh;
+}
+}
+
+
+/* スマホならメインのヘッダーを表示しないように */
