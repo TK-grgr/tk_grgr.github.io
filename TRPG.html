@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masanari Sueyoshiポートフォリオ TRPG</title>
+    <link rel="icon" type="image/png" href="images/dice_3.png">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"><!--リセットCSS-->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap" rel="stylesheet">
+    <script src="JavaScript/script.js" defer></script>
+</head>
+<body>
+<a id="pagetop"><span></span></a>
+<div class="header-top"></div>
+<div>
+        <header class="wrapper desk-only">
+                <a class="home-btn home-btn--framed home-btn--md" href="index.html"><h1 class="title">Masanari Sueyoshi<br>portfolio</h1></a><!--タイトル-->
+            <nav>
+                <ul class="main-nav" id="hoverText"><!--ナビゲーションメニュー-->
+                    <li class="text-under"><a href="index.html">ホーム</a></li>
+                    <li class="text-under"><a href="profile.html">プロフィール</a></li>
+                    <li class="text-under"><a href="activity.html">最近の活動</a></li>
+                    <li class="text-under"><a href="contact.html">連絡先</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="box-shadow">
+            <ol class="flex-box sub-wrapper">
+                <li><a href="index.html"  class="font-english tag-text">HOME&emsp;</a></li><!--&emsp;で全角一文字分の空白を空けられる-->
+                <li class="font-english tag-text"><a href="profile.html"  class="font-english tag-text">≫&emsp;profile&emsp;</a></li>
+                <li class="font-english tag-text">≫&emsp;trpg</li>
+            </ol>
+        </div>
+    <div class="litle-blank"></div>
+    <header class="scroll-header " id="scrollHeader"><!--サブヘッダー-->
+        <div class="header-inner">
+        <a class="home-btn home-btn--framed home-btn--sm" href="index.html"><h1 class="title" id="header-title">Masanari Sueyoshi<br>portfolio</h1></a><!--タイトル-->
+        <nav>
+            <ul class="small-nav">
+                <li class="text-under sub-text-under"><a href="index.html">ホーム</a></li>
+                <li class="text-under sub-text-under"><a href="profile.html">プロフィール</a></li>
+                <li class="text-under sub-text-under"><a href="activity.html">最近の活動</a></li>
+                <li class="text-under sub-text-under"><a href="contact.html">連絡先</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+</div>
+<div class="blank"></div><!--空白-->
+    <div class="wrapper">
+        <div class="underline">
+            <h2 class="font-english sub-title ">TRPG</h2>
+            <p class="sub-sub-title">TRPG とは何か？クトゥルフ神話 TRPG やシノビガミを使って解説</p>
+        </div>
+        <p>まず初めに...</p>
+        <div class="litle-blank"></div>
+        <h2 class="trpg-sub-title">TRPGって何?</h2>
+        <div class="blank"></div>
+        <p>TRPGとはテーブルトークロールプレイングゲームの略。電子機器を使わず、運に振り回されながら自身の役を演じる卓上ゲームのことである。</p>
+        <p>人狼ゲームも市民陣営、人狼陣営に分かれて、それぞれの役職を演じることから分類的にはTRPGに含まれる。</p>
+        <p>電子機器を使わないので、ルールの判断をするのは勿論人間。人によって判断が少し変わることもこのゲームの面白いところだ。</p>
+        <p>TRPGは聞くだけでルールを理解することは難しい。百聞は一見に如かず。Youtubeなどの動画共有プラットフォームで「TRPG&emsp;リプレイ」と検索して一度見てほしい。</p>
+        <p>とはいえ、全く説明しなければ動画でも何が起きているか全くわからないかもしれない。だから...</p>
+        <div class="blank"></div>
+        <h2 class="trpg-sub-title">まずはダイスを振れ</h2>
+        <div class="blank"></div>
+        <ul class="flex-box img_gap">
+            <li><img src="images/dice_1.png" class="trpg_img" id="dice_1"></li>
+            <li><img src="images/dice_1.png" class="trpg_img" id="dice_2"></li>
+            <li><p id="trpg_text">合計値が表示されます</p></li>
+        </ul>
+        <button id="dice_btn">ダイスを振る</button>
+        <div class="blank"></div>
+        <p>これが君の行動の成功度、TRPGでは達成値と呼ぶ。</p>
+        <p>TRPGのシステムによって振るダイスの種類、数、成功度の求め方が変わってくる。</p>
+        <p>今回のダイスはシノビガミというシステムのもの、数値が大きいほど成功度が高い。</p>
+        <p>そして、行動によって目標値、行動を成功させるのに最低限必要な達成値が設定されている。難しい行動ほど求められる達成値は大きくなっていく。</p>
+        <p>この達成値、目標値はどのTRPGにおいても使用される超基本ルールである。</p>
+    </div>
+
+<footer class="copylight">
+    <small>&copy;Masanari Sueyoshi</small>
+</footer>
+</body>
+</html>
